@@ -1,0 +1,27 @@
+[
+    {
+        "directory": "C:/Users/yegor/OneDrive/Рабочий стол/Visual Studio/C++ Folder/os1",
+        "command": "g++ -std=c++17 -Wall -Iinclude -c src/main.cpp -o build/main.o",
+        "file": "src/main.cpp"
+    },
+    {
+        "directory": "C:/Users/yegor/OneDrive/Рабочий стол/Visual Studio/C++ Folder/os1",
+        "command": "g++ -std=c++17 -Wall -Iinclude -c src/file_utils.cpp -o build/file_utils.o",
+        "file": "src/file_utils.cpp"
+    },
+    {
+        "directory": "C:/Users/yegor/OneDrive/Рабочий стол/Visual Studio/C++ Folder/os1",
+        "command": "g++ -std=c++17 -Wall -Iinclude -c src/directory_utils.cpp -o build/directory_utils.o",
+        "file": "src/directory_utils.cpp"
+    },
+    {
+        "directory": "C:/Users/yegor/OneDrive/Рабочий стол/Visual Studio/C++ Folder/os1",
+        "command": "g++ -std=c++17 -Wall -Iinclude -c src/disk_utils.cpp -o build/disk_utils.o",
+        "file": "src/disk_utils.cpp"
+    },
+    {
+        "directory": "C:/Users/yegor/OneDrive/Рабочий стол/Visual Studio/C++ Folder/os1",
+        "command": "g++ -o build/my_project.exe build/main.o build/file_utils.o build/directory_utils.o build/disk_utils.o -mwindows",
+        "file": ""
+    }
+]
