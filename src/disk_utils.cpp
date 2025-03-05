@@ -73,4 +73,40 @@ void printDriveInfo(LPCSTR drivePath) {
     } else {
         std::cerr << "Error in getting disk space information.\n";
     }
+
+    char check;
+
+    std::cout << "Would you like to get more information about the disk?\n";
+    std::cout << "Type 'y' for yes or any other key for no.\n> ";
+    std::cin >> check;
+    if (check == 'y' || check == 'Y'){
+        if (fileSystemFlags & FILE_READ_ONLY_VOLUME) std::cout << "Read-only volume.\n";
+        if (fileSystemFlags & FILE_SUPPORTS_INTEGRITY_STREAMS) std::cout << "Support of integrity streams.\n";
+        if (fileSystemFlags & FILE_SUPPORTS_TRANSACTIONS) std::cout << "Support of transactions.\n";
+        if (fileSystemFlags & FILE_SUPPORTS_OPEN_BY_FILE_ID) std::cout << "Support of opening by FileID.\n";
+        if (fileSystemFlags & FILE_UNICODE_ON_DISK) std::cout << "Support of Unicode in file names.\n";
+        if (fileSystemFlags & FILE_FILE_COMPRESSION) std::cout << "Support of file-based compression.\n";
+        if (fileSystemFlags & FILE_VOLUME_QUOTAS) std::cout << "Support of disk quotas.\n";
+        if (fileSystemFlags & FILE_SUPPORTS_GHOSTING) std::cout << "Support of ghosting.\n";
+        if (fileSystemFlags & FILE_SUPPORTS_SPARSE_FILES) std::cout << "Support of sparse files.\n";
+        if (fileSystemFlags & FILE_SUPPORTS_REPARSE_POINTS) std::cout << "Support of reparse points.\n";
+        if (fileSystemFlags & FILE_SUPPORTS_REMOTE_STORAGE) std::cout << "Support of remote storage.\n";
+        if (fileSystemFlags & FILE_SUPPORTS_POSIX_UNLINK_RENAME) std::cout << "Support of POSIX-style delete/rename.\n";
+        if (fileSystemFlags & FILE_SUPPORTS_ENCRYPTION) std::cout << "Support of EFS (encrypted file system).\n";
+        if (fileSystemFlags & FILE_NAMED_STREAMS) std::cout << "Support of named streams.\n";
+        if (fileSystemFlags & FILE_CASE_SENSITIVE_SEARCH) std::cout << "Support of case-sensitive file names.\n";
+        if (fileSystemFlags & FILE_SEQUENTIAL_WRITE_ONCE) std::cout << "Support of sequential write once.\n";
+        if (fileSystemFlags & FILE_SUPPORTS_OBJECT_IDS) std::cout << "Support of object identifiers.\n";
+        if (fileSystemFlags & FILE_SUPPORTS_HARD_LINKS) std::cout << "Support of hard links.\n";
+        if (fileSystemFlags & FILE_SUPPORTS_EXTENDED_ATTRIBUTES) std::cout << "Supports extended attributes.\n";
+        if (fileSystemFlags & FILE_SUPPORTS_USN_JOURNAL) std::cout << "Support of USN journal.\n";
+        if (fileSystemFlags & FILE_SUPPORTS_BLOCK_REFCOUNTING) std::cout << "Support of block refcounting.\n";
+        if (fileSystemFlags & FILE_SUPPORTS_SPARSE_VDL) std::cout << "Tracks sparse valid data length (VDL).\n";
+        if (fileSystemFlags & FILE_PERSISTENT_ACLS) std::cout << "Preserves and enforces ACLs.\n";
+        if (fileSystemFlags & FILE_CASE_PRESERVED_NAMES) std::cout << "Preserves case of file names.\n";
+        if (fileSystemFlags & FILE_RETURNS_CLEANUP_RESULT_INFO) std::cout << "Returns cleanup result info.\n";
+        if (fileSystemFlags & FILE_VOLUME_IS_COMPRESSED) std::cout << "Compressed volume.\n";
+        if (fileSystemFlags & FILE_DAX_VOLUME) std::cout << "Direct access (DAX) volume.\n";
+    }
+
 }
