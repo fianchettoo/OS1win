@@ -63,15 +63,14 @@ void printDriveInfo(LPCSTR drivePath) {
     }
 
     DWORD sectorsPerCluster, bytesPerSector, numberOfFreeClusters, totalNumberOfClusters;
-    if (GetDiskFreeSpaceA(drivePath, &sectorsPerCluster, &bytesPerSector, &numberOfFreeClusters, &totalNumberOfClusters)) {
-        std::cout << "Free space: " 
-                  << (numberOfFreeClusters * sectorsPerCluster * bytesPerSector) / (1024 * 1024) 
-                  << " MB\n";
-        std::cout << "Total space: " 
-                  << (sectorsPerCluster * bytesPerSector * totalNumberOfClusters) / (1024 * 1024) 
-                  << " MB\n";
 
+    if (GetDiskFreeSpaceA(drivePath, &sectorsPerCluster, &bytesPerSector, &numberOfFreeClusters, &totalNumberOfClusters)) {
+        ULONGLONG freeBytes = static_cast<ULONGLONG>(sectorsPerCluster) * bytesPerSector * numberOfFreeClusters;
+        ULONGLONG totalBytes = static_cast<ULONGLONG>(sectorsPerCluster) * bytesPerSector * totalNumberOfClusters;
+
+        std::cout << "Free space: " << static_cast<double>(freeBytes) / (1024 * 1024 * 1024) << " GB\n";
+        std::cout << "Total space: " << static_cast<double>(totalBytes) / (1024 * 1024 * 1024) << " GB\n";
     } else {
-        std::cerr << "Error in getting information about free space.\n";
+        std::cerr << "Error in getting disk space information.\n";
     }
 }
